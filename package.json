@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node bin/www",
+    "start": "set DEBUG=hangman:server&& node bin/www",
     "test": "node node_modules/mocha/bin/mocha"
   },
   "dependencies": {
@@ -19,6 +19,11 @@
     "@types/express": "latest",
     "@types/mocha": "^8.2.1",
     "@types/node": "^14.14.31",
+    "@types/morgan": "latest",
+    "@types/debug": "latest",
+    "@types/cookie-parser": "latest",
+    "@types/hbs": "latest",
+    "@types/http-errors": "latest",
     "chai": "latest",
     "mocha": "latest",
     "prettier": "^2.2.1",
