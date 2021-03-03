@@ -1,0 +1,45 @@
+body{
+  font-family: 'Kalam', cursive;
+  margin:20px;
+}
+
+button{
+  font-family: 'Kalam', cursive;
+  font-size:15px;
+}
+
+nav{
+  border-bottom:1px solid black;
+  padding-bottom: 10px;
+
+}
+
+nav ol {
+  list-style-type:none;
+  display:flex;
+  padding-left: 0;
+  margin:0;
+}
+
+nav ol li{
+  align-self: center;
+}
+
+.nav-button{
+  background-color:transparent;
+  height:50px;
+  width:200px;
+  border-radius: 30px/90px;
+}
+
+.nav-element-button{
+  margin-left:20px;
+}
+
+#title{
+  font-size: 50px;
+}
+
+#space{
+  flex-grow:1;
+}

@@ -2,9 +2,21 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/global-style.css' />
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
   </head>
   <body>
+  <header>
+      <nav>
+          <ol>
+              <li id="title">Hangman</li>
+              <li id="space"></li>
+              <li class="nav-element-button"><form method="get" action="/home"><button id="home-button" class="nav-button">Home</button></form></li>
+              <li class="nav-element-button"><form method="get" action="/ranking"><button id="ranking-button" class="nav-button">Ranking</button></form></li>
+          </ol>
+      </nav>
+  </header>
     {{{body}}}
   </body>
 </html>
