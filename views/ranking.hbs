@@ -1,0 +1,21 @@
+<link rel='stylesheet' href='/stylesheets/ranking-style.css' />
+<div id="content">
+    <h1>Ranking</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+    {{#each player}}
+        <tr>
+            <td>{{this.username}}</td>
+            <td>{{this.score}}</td>
+        </tr>
+    {{/each}}
+        </tbody>
+    </table>
+</div>
+</div>

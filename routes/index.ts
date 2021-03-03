@@ -8,11 +8,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next){
-  res.render('login', {title:'hangman'});
+  res.render('login', {title:'hangman', layout:false});
 });
 
 router.get('/play', function(req, res, next){
-  res.render('play', {title:'hangman'});
+  res.render('play', {title:'hangman', wordLength:7});
 });
 
 router.get('/ranking', function(req, res, next){

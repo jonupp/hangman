@@ -1,0 +1,39 @@
+#content{
+    margin: 0 auto;
+    display:grid;
+    width:60%;
+    justify-content: center;
+}
+
+#image{
+    width:200px;
+    height:300px;
+    background-color:white;
+}
+
+p{
+    text-align:center;
+}
+
+form{
+    display:contents;
+}
+
+#play-button{
+    width:150px;
+    height:50px;
+    justify-self:center;
+    background-color:white;
+    transition:all ease-in 200ms;
+}
+
+#play-button:hover{
+    transition:all ease-in 200ms;
+    background-color:#ff3863;
+    color:white;
+    border-radius:0;
+}
+
+#saved-text{
+    margin-bottom:20px;
+}

@@ -1,0 +1,56 @@
+.container{
+    margin: 0 auto;
+    width:60%;
+    display:grid;
+    grid-template-columns:1fr;
+    justify-content:center;
+}
+
+form{
+    display:contents;
+}
+
+#state-image{
+    width:200px;
+    height:300px;
+    background-color:white;
+    justify-self:center;
+}
+
+#guessed-characters-container{
+    display:flex;
+    justify-content:space-between;
+    height:100px;
+    align-items:flex-end;
+    margin-bottom:20px;
+}
+
+span{
+    font-size:40px;
+}
+
+#available-characters-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+#available-characters-container button{
+    border-color:black;
+    background-color:white;
+    width:40px;
+    height: 40px;
+    transition:background-color ease-in 200ms;
+}
+
+#available-characters-container button:hover{
+    transition:background-color ease-in 200ms;
+    background-color:#fbff0f;
+}
+
+#available-characters-container button:active{
+    transform: translateY(2px);
+}
+

@@ -11,7 +11,6 @@ button{
 nav{
   border-bottom:1px solid black;
   padding-bottom: 10px;
-
 }
 
 nav ol {
@@ -42,4 +41,12 @@ nav ol li{
 
 #space{
   flex-grow:1;
+}
+
+p{
+  margin:0;
+}
+
+header{
+  margin-bottom:20px;
 }

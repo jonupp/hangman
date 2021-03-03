@@ -1,0 +1,43 @@
+<link rel='stylesheet' href='/stylesheets/play-style.css' />
+
+<div class="container" id="play-container">
+    <img id="state-image" src="/images/stickfigure.png">
+    <div id="guessed-characters-container">
+        {{#times wordLength}}
+            <span>_</span>
+        {{/times}}
+    </div>
+    <div id="available-characters-container">
+        <form method="post" >
+            <button type="button" onClick="characterPressedHandler">A</button>
+            <button type="button" onClick="characterPressedHandler">B</button>
+            <button type="button" onClick="characterPressedHandler">C</button>
+            <button type="button" onClick="characterPressedHandler">D</button>
+            <button type="button" onClick="characterPressedHandler">E</button>
+            <button type="button" onClick="characterPressedHandler">F</button>
+            <button type="button" onClick="characterPressedHandler">G</button>
+            <button type="button" onClick="characterPressedHandler">H</button>
+            <button type="button" onClick="characterPressedHandler">I</button>
+            <button type="button" onClick="characterPressedHandler">J</button>
+            <button type="button" onClick="characterPressedHandler">K</button>
+            <button type="button" onClick="characterPressedHandler">L</button>
+            <button type="button" onClick="characterPressedHandler">M</button>
+            <button type="button" onClick="characterPressedHandler">N</button>
+            <button type="button" onClick="characterPressedHandler">P</button>
+            <button type="button" onClick="characterPressedHandler">Q</button>
+            <button type="button" onClick="characterPressedHandler">R</button>
+            <button type="button" onClick="characterPressedHandler">S</button>
+            <button type="button" onClick="characterPressedHandler">T</button>
+            <button type="button" onClick="characterPressedHandler">U</button>
+            <button type="button" onClick="characterPressedHandler">V</button>
+            <button type="button" onClick="characterPressedHandler">W</button>
+            <button type="button" onClick="characterPressedHandler">X</button>
+            <button type="button" onClick="characterPressedHandler">Y</button>
+            <button type="button" onClick="characterPressedHandler">Z</button>
+        </form>
+    </div>
+</div>
+
+<div class="container" id="end-container">
+
+</div>

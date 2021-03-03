@@ -1,3 +1,49 @@
 #content{
     margin: 0 auto;
+    width:60%;
+    font-size:50px;
+    display:grid;
+}
+
+input{
+    display:block;
+    width:200px;
+    height:30px;
+    padding:5px;
+    border-width: 2px;
+}
+
+button{
+    width: 214px;
+    height: 30px;
+    background-color:white;
+}
+
+button:active{
+    transform: translateY(2px);
+}
+
+h1{
+    text-align:center;
+    margin:0;
+}
+
+#content *{
+    justify-self:center;
+}
+
+#input-username{
+    margin-bottom:10px;
+}
+
+#input-password{
+    margin-bottom:10px;
+}
+
+#form{
+    display:contents;
+}
+
+#login-button{
+    margin-bottom:5px;
 }
