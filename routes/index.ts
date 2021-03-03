@@ -4,7 +4,19 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('home', { title: 'hangman' });
+});
+
+router.get('/login', function(req, res, next){
+  res.render('login', {title:'hangman'});
+});
+
+router.get('/play', function(req, res, next){
+  res.render('play', {title:'hangman'});
+});
+
+router.get('/ranking', function(req, res, next){
+  res.render('ranking', {title:'hangman'});
 });
 
 export default router;
