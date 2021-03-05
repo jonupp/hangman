@@ -1,9 +1,4 @@
-export interface IPlayer {
-    name: string,
-    score: number
-}
-
-export class Player implements IPlayer {
+export class Player{
     name: string;
     score: number;
 

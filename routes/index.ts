@@ -17,7 +17,9 @@ router.get('/play', function(req, res, next){
 });
 
 router.get('/ranking', async function(req, res, next){
-  res.render('ranking', {title:'hangman', players: await playerStore.getAll({score: 1}, 3)});
+  await playerStore.update('6041415511e129dd6d84a4ea', {score: 56});
+  const ranking = await playerStore.get({}, {score: -1}, 5);
+  res.render('ranking', {title:'hangman', players: ranking});
 });
 
 export default router;
