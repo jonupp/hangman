@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "prestart": "mongo 127.0.0.1:27017/hangmanDB services/repository/create-db-script.js",
     "start": "node bin/www",
     "test": "node node_modules/mocha/bin/mocha"
   },
@@ -13,17 +14,18 @@
     "express": "~4.16.1",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
+    "mongoose": "^5.11.15",
     "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "@types/express": "latest",
-    "@types/mocha": "^8.2.1",
-    "@types/node": "^14.14.31",
-    "@types/morgan": "latest",
-    "@types/debug": "latest",
     "@types/cookie-parser": "latest",
+    "@types/debug": "latest",
+    "@types/express": "latest",
     "@types/hbs": "latest",
     "@types/http-errors": "latest",
+    "@types/mocha": "^8.2.1",
+    "@types/morgan": "latest",
+    "@types/node": "^14.14.31",
     "chai": "latest",
     "mocha": "latest",
     "prettier": "^2.2.1",

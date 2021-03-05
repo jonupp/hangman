@@ -1,3 +1,9 @@
+#Dependency directories
 node_modules/
+
+#Webstorm
 *.js
 .idea/
+
+#Mac Zügs
+.DS_Store

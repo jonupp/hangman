@@ -4,7 +4,6 @@ import path from "path";
 import logger from "morgan";
 import handlebars from "hbs";
 import {times} from "./handlebars-helper/handlebars-helper.js";
-
 import indexRouter from "./routes/index.js"
 
 const app = express();

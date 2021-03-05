@@ -15,7 +15,7 @@ router.get('/play', function(req, res, next){
   res.render('play', {title:'hangman', wordLength:7});
 });
 
-router.get('/ranking', function(req, res, next){
+router.get('/ranking', async function(req, res, next){
   res.render('ranking', {title:'hangman'});
 });
 
