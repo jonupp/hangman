@@ -11,10 +11,14 @@ table{
     border-collapse:collapse;
 }
 
-h1{
-    text-align:center;
-}
+
 
 td, th{
     border:1px solid black;
+    text-align: center;
+    font-size:0.8em;
+}
+
+td{
+  padding:10px;
 }

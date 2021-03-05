@@ -1,16 +1,47 @@
+:root {
+  --blue: #5AF;
+  --red: #eb3434;
+  --font-size: 30px;
+  --font-family:'Kalam', cursive;
+}
+
 body{
-  font-family: 'Kalam', cursive;
-  margin:20px;
+  font-family: var(--font-family);
+  font-size:var(--font-size);
+  margin:0;
+  display:grid;
+  grid-template-rows:min-content 1fr min-content;
+  height:100vh;
+}
+
+input{
+  font-size:var(--font-size);
+  font-family: var(--font-family);
 }
 
 button{
   font-family: 'Kalam', cursive;
-  font-size:15px;
+  font-size:var(--font-size);
 }
 
 nav{
   border-bottom:1px solid black;
-  padding-bottom: 10px;
+  background-color:var(--blue);
+  padding-left:40px;
+  padding-right:40px;
+}
+
+.nav-element a{
+  width:200px;
+  display:inline-block;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color ease-in 200ms;
+}
+
+.nav-element a:hover{
+  transition: background-color ease-in 200ms;
+  background-color: white;
 }
 
 nav ol {
@@ -24,19 +55,8 @@ nav ol li{
   align-self: center;
 }
 
-.nav-button{
-  background-color:transparent;
-  height:50px;
-  width:200px;
-  border-radius: 30px/90px;
-}
-
-.nav-element-button{
-  margin-left:20px;
-}
-
 #title{
-  font-size: 50px;
+  font-size: 70px;
 }
 
 #space{
@@ -47,6 +67,51 @@ p{
   margin:0;
 }
 
-header{
+nav{
+  margin-bottom: 20px;
+}
+
+#play-button{
+  width:200px;
+  height:75px;
+  justify-self:center;
+  background-color:white;
+  border-radius:0;
+  transition:all ease-in 200ms;
+}
+
+#play-button:hover{
+  transition:all ease-in 200ms;
+  background-color:var(--red);
+  color:white;
+  border-radius:0;
+}
+
+#play-button:active{
+  transform: translateY(2px);
+}
+
+button:focus, button:active, button:hover{
+  outline: none;
+}
+
+h1{
+  margin: 0px;
+  text-align:center;
+}
+
+.website-content{
+  min-height: 100%;
+}
+
+footer span{
+  text-align:center;
+  display: block;
+  font-size:15px;
+  opacity: 60%;
   margin-bottom:20px;
+}
+
+a:visited{
+  color:black;
 }
