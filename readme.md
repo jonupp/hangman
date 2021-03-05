@@ -1,5 +1,5 @@
 # Hangman
-## Start
+## Run
 Isch no echli es chaos.
 Zum Starten start-Skript ausführen. Falls mongod schon gestartet wurde erst stop-Skript ausführen.
 
