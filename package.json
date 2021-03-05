@@ -4,10 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prestart": "mongod --config services/repository/mongodbconf.yaml && mongo 127.0.0.1:27017/hangmanDB services/repository/create-db-script.js",
+    "prestart": "",
     "start": "node bin/www",
     "test": "node node_modules/mocha/bin/mocha",
-    "stop": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\""
+    "stop": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\"",
+    "startdb": "mongod --config services/repository/mongodbconf.yaml\"",
+    "resetdb":"mongo 127.0.0.1:27017/hangmanDB services/repository/create-db-script.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -29,6 +31,7 @@
     "@types/morgan": "latest",
     "@types/node": "^14.14.31",
     "chai": "latest",
+    "cross-os": "^1.4.0",
     "mocha": "latest",
     "prettier": "^2.2.1",
     "typescript": "latest"
