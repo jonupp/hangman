@@ -8,7 +8,7 @@
     "startexpress": "node bin/www",
     "test": "node node_modules/mocha/bin/mocha",
     "stop": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\"",
-    "startdb": "mongod --config services/repository/mongodbconf.yaml\"",
+    "startdb": "mongod --config services/repository/mongodbconf.yaml",
     "resetdb": "mongo 127.0.0.1:27017/hangmanDB services/repository/create-db-script.js"
   },
   "dependencies": {
@@ -17,7 +17,7 @@
     "express": "~4.16.1",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
-    "mongoose": "^5.11.15",
+    "mongodb": "^3.6.4",
     "morgan": "~1.9.1",
     "open": "^8.0.2"
   },
