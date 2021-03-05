@@ -34,6 +34,14 @@ class Database {
         }
     }
 
+    async findMany(modelName, sort, amount) {
+        try {
+            return (await this.models[modelName].find({}).sort(sort).limit(amount)).map(model => model._doc);
+        } catch(e) {
+            console.log("DATABASE FIND ERROR: "+e);
+        }
+    }
+
     async update(modelName, id, score) {
         try {
             await this.models[modelName].updateOne({_id: id}, {$set: {score}});

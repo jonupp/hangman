@@ -24,6 +24,10 @@ class PlayerStore {
         return await database.find(Player.name, id);
     }
 
+    async getAll(sort, amount) {
+        return await database.findMany(Player.name, sort, amount);
+    }
+
     async updateScore(id, score) {
         await database.update(Player.name, id, score);
     }

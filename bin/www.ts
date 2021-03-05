@@ -4,6 +4,7 @@ import app from "../app.js";
 import debug from "debug";
 const log = debug("hangman:server");
 import http from "http";
+import open from "open";
 
 /**
  * Get port from environment and store in Express.
@@ -74,4 +75,9 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr?.port;
   log('Listening on ' + bind);
+  if(process.env.DEBUG=='hangman:server') {
+    const url = `http://localhost:${port}`;
+    console.log(`opening default browser at: ${url}`);
+    open(url);
+  }
 }

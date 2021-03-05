@@ -1,4 +1,5 @@
 import express from "express";
+import {playerStore} from "../services/playerStore.js";
 
 const router = express.Router();
 
@@ -16,7 +17,7 @@ router.get('/play', function(req, res, next){
 });
 
 router.get('/ranking', async function(req, res, next){
-  res.render('ranking', {title:'hangman'});
+  res.render('ranking', {title:'hangman', players: await playerStore.getAll({score: 1}, 3)});
 });
 
 export default router;
