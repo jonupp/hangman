@@ -7,18 +7,10 @@ class Database {
     private db;
 
     constructor() {
-        this.connect()
-            .then(() => console.log("mongodb connection success"))
-            .catch(() => console.log("mongodb connection error"));
-    }
-
-    connect() {
-        return new Promise((resolve, reject) => {
-            MongoClient.connect(connectionURL, (err, client) => {
-                if (err) reject(err);
-                this.db = client.db(dbName);
-                resolve(this)
-            })
+        MongoClient.connect(connectionURL, (err, client) => {
+            if (err) console.log("mongodb connection error: "+err);
+            this.db = client.db(dbName);
+            console.log("mongodb connection success");
         });
     }
 
