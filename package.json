@@ -4,12 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prestart": "",
-    "start": "node bin/www",
+    "start": "npm-run-all --parallel startexpress startdb",
+    "startexpress": "node bin/www",
     "test": "node node_modules/mocha/bin/mocha",
     "stop": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\"",
     "startdb": "mongod --config services/repository/mongodbconf.yaml\"",
-    "resetdb":"mongo 127.0.0.1:27017/hangmanDB services/repository/create-db-script.js"
+    "resetdb": "mongo 127.0.0.1:27017/hangmanDB services/repository/create-db-script.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -33,6 +33,7 @@
     "chai": "latest",
     "cross-os": "^1.4.0",
     "mocha": "latest",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
     "typescript": "latest"
   }
