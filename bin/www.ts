@@ -77,7 +77,7 @@ function onListening() {
   log('Listening on ' + bind);
   if(process.env.DEBUG=='hangman:server') {
     const url = `http://localhost:${port}`;
-    console.log(`opening default browser at: ${url}`);
+    console.log(`Opening default browser at: ${url}\n`);
     open(url);
   }
 }

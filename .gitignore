@@ -7,3 +7,13 @@ node_modules/
 
 #Mac Zügs
 .DS_Store
+
+#Logs
+*.log
+
+#Data
+data/*
+
+#Don't ignore
+.create-db-script.js
+!data/.gitkeep
