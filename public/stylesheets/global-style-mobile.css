@@ -1,0 +1,14 @@
+@media (max-width:650px) {
+    :root {
+        --font-size: 20px;
+    }
+
+    #title{
+        font-size:40px;
+    }
+
+    .nav-element a{
+        width:70px;
+    }
+
+}

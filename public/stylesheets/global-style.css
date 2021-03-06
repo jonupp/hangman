@@ -101,7 +101,8 @@ h1{
 }
 
 .website-content{
-  min-height: 100%;
+  width:100%;
+  margin-bottom:20px;
 }
 
 footer span{
@@ -110,6 +111,10 @@ footer span{
   font-size:15px;
   opacity: 60%;
   margin-bottom:20px;
+}
+
+footer{
+  position:static;
 }
 
 a:visited{
