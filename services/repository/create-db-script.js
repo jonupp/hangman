@@ -14,7 +14,8 @@ db.players.insertMany([
     { "_id" : ObjectId("60413faaf63e47a8a3433e1d"), "name" : "Gerta", "score" : 2 },
     { "_id" : ObjectId("60413fb86ef094aa66c0574e"), "name" : "Ueli", "score" : 10 },
     { "_id" : ObjectId("60413fe3b72c0bafbd1721a0"), "name" : "Kalberer", "score" : 9 },
-    { "_id" : ObjectId("6041415511e129dd6d84a4ea"), "name" : "Peter", "score" : 53 }
+    { "_id" : ObjectId("6041415511e129dd6d84a4ea"), "name" : "Peter", "score" : 53 },
+    { "_id" : ObjectId("6041415511e129dd6d84a4ef"), "name" : "Jonas", "score" : 52 }
 ]);
 print('\x1b[32m** Players collection and documents created:\x1b[0m');
 db.players.find().forEach(e => print('\t'+JSON.stringify(e).replace('\n', ' ')));

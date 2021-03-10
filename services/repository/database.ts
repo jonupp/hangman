@@ -7,11 +7,13 @@ class Database {
     private db;
 
     constructor() {
-        MongoClient.connect(connectionURL, (err, client) => {
-            if (err) console.log("mongodb connection error: "+err);
-            this.db = client.db(dbName);
-            console.log("mongodb connection success");
-        });
+        setTimeout(() => {
+            MongoClient.connect(connectionURL, (err, client) => {
+                if (err) console.log("mongodb connection error: "+err);
+                this.db = client.db(dbName);
+                console.log("mongodb connection success");
+            });
+        }, 2000);
     }
 
     async insert(collection, entry) {
