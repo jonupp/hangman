@@ -7,7 +7,6 @@
     "start": "npm-run-all --parallel startexpress startdb",
     "startexpress": "node bin/www",
     "test": "node node_modules/mocha/bin/mocha",
-    "stop": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\"",
     "startdb": "docker run -p 27017:27017 -v mongoman:/data/db mongo",
     "resetdb": "mongo 127.0.0.1:27017/hangmanDB services/repository/create-db-script.js"
   },
