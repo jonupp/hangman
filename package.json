@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "npm-run-all --parallel startexpress startdb",
     "startexpress": "node bin/www",
     "test": "node node_modules/mocha/bin/mocha",
-    "startdb": "docker run -p 27017:27017 -v mongoman:/data/db mongo",
+    "createdockercontainer": "docker run --name hangmandb -p 27017:27017 -v mongoman:/data/db mongo",
+    "startdb": "docker start hangmandb",
+    "stopdb": "docker stop hangmandb",
     "resetdb": "mongo 127.0.0.1:27017/hangmanDB services/repository/create-db-script.js"
   },
   "dependencies": {
