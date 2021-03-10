@@ -6,7 +6,7 @@ node_modules/
 .idea/
 
 #Mac Zügs
-.DS_Store
+*.DS_Store
 
 #Logs
 *.log
