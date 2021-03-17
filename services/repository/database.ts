@@ -1,7 +1,7 @@
 import pkg from 'mongodb';
 const { MongoClient, ObjectID } = pkg;
 const connectionURL = 'mongodb://localhost:27017/';
-const dbName = 'hangmanDB';
+const dbName = 'hangmandb';
 
 class Database {
     private db;
