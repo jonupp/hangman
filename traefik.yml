@@ -1,15 +1,11 @@
 entryPoints:
     web:
         address: ":80"
-
-http:
-    services:
-        my-service:
-            loadBalancer:
-                servers:
-                    - url: "http://host.docker.internal:3000/"
-                    - url: "http://host.docker.internal:3001/"
                 
 api:
     dashboard: true
     insecure: true
+    
+providers:
+    file:
+        filename: "/etc/traefik/traefik_dynamic.yml"
