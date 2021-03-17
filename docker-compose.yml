@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+    mongo:
+        image: "mongo"
+        ports:
+            - "27017:27017"
+        volumes:
+            - db-data:/data/db
+        container_name: hangmandb
+        
+    traefik:
+        image: "traefik:v2.4"
+        container_name: "traefik"
+        command:
+        #- "--log.level=DEBUG"
+        - "--api.insecure=true"
+        - "--providers.docker=true"
+        - "--providers.docker.exposedbydefault=false"
+        #- "--entrypoints.web.address=:80"
+        ports:
+            - "80:80"
+            - "8080:8080"
+        volumes:
+            - "./traefik.yml:/etc/traefik/traefik.yml" #Config
+            - "./traefik_dynamic.yml:/traefik_dynamic.yml"
+            - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    
+volumes:
+    db-data:
+    
