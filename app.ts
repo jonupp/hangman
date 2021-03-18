@@ -4,8 +4,8 @@ import path from "path";
 import logger from "morgan";
 import handlebars from "hbs";
 import {times} from "./handlebars-helper/handlebars-helper.js";
-import indexRouter from "./routes/index.js"
-
+import indexRouter from "./controller/routeController.js"
+import cookieParser from "cookie-parser";
 const app = express();
 
 // view engine setup
@@ -17,6 +17,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.resolve("public")));
+app.use(cookieParser());
 
 app.use('/', indexRouter);
 
