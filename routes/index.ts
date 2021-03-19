@@ -32,4 +32,16 @@ async function getGame(req, res){
   res.render('game', {title:'hangman', wordLength: state.wordToGuess.length});
 }
 
-export {handleGetHome, handleGetLogin, handleGetRanking, getGame};
+//Für debugging
+async function handlePutCharacter(req, res) {
+  console.log(req.params.id);
+  console.log(req.params.character);
+  res.json({correctlyGuessedCharacters: {A: 0, L: 3}, wronglyGuessedCharacters: ['X', 'U']}); //nüme nötig
+}
+
+//Für debugging
+async function handleGetGameState(req, res) {
+  res.json({correctlyGuessedCharacters: {A: 0, L: 3}, wronglyGuessedCharacters: ['X', 'U']});
+}
+
+export {handleGetHome, handleGetLogin, handleGetRanking, getGame, handlePutCharacter, handleGetGameState};
