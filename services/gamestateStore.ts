@@ -1,5 +1,5 @@
 import {database} from "./repository/database.js";
-import Gamestate from "./gamestate";
+import {Gamestate} from "./gamestate";
 
 class GamestateStore{
     async add(gamestate : Gamestate) {

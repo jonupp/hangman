@@ -22,6 +22,6 @@ router.get('/game/:game_id/:character', handlePutGameGameIdCharacter);
 
 router.get('/game/:game_id', handleGetGameGameId);
 
-router.get('/endgame/:result', handleGetEndgame);
+router.get('/endgame', handleGetEndgame);
 
 export default router;
