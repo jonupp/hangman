@@ -2,7 +2,7 @@
 <div class="website-content">
 <link rel='stylesheet' href='/stylesheets/play-style.css' />
 <div class="container" id="play-container">
-    <img id="state-image" src="/images/stickfigure.png">
+    <img id="state-image" src="/images/hangman_images/0F.svg">
     <div id="guessed-characters-container">
         {{#times wordLength}}
             <span>_</span>
@@ -38,8 +38,6 @@
             <button type="button">Z</button>
         </form>
     </div>
-    <form id="endgame-redirection" action="/endgame/lost">
-        <button>endgame/lost</button>
-    </form>
+    <form id="endgame-redirection" action="/endgame"></form>
 </div>
 </div>

@@ -1,5 +1,5 @@
 :root {
-  --blue: #5AF;
+  --blue: #55aaff;
   --red: #eb3434;
   --font-size: 30px;
   --font-family:'Kalam', cursive;
@@ -37,11 +37,12 @@ nav{
   text-decoration: none;
   text-align: center;
   transition: background-color ease-in 200ms;
+  border-radius: 320px;
 }
 
 .nav-element a:hover{
   transition: background-color ease-in 200ms;
-  background-color: white;
+  background-color: #9dd5ff;
 }
 
 nav ol {

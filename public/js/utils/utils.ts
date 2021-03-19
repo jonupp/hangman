@@ -12,5 +12,5 @@ export function parseCookie() {
 }
 
 export function getIndexFromCharacter(character) {
-    return character.charCodeAt(0)-"A".charCodeAt(0);
+    return character.charCodeAt(0)-"a".charCodeAt(0);
 }

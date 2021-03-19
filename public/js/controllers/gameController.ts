@@ -1,11 +1,12 @@
 import { gameService } from "../services/gameService.js";
 import { parseCookie, getIndexFromCharacter } from "../utils/utils.js";
 
-function initGame() {
+async function initGame() {
     const gameId = parseCookie().game_id;
     const alphaButtons = document.querySelectorAll("button");
     const toGuessPlaceholders = document.querySelectorAll("span");
-    const formRedirection = document.querySelector("#endgame-redirection");
+    const endgameRedirection = document.querySelector("#endgame-redirection");
+    const hangmanImage = document.querySelector("#state-image");
 
     for(const alphaButton of alphaButtons) {
         alphaButton.addEventListener('click', characterPressedHandler);
@@ -13,37 +14,51 @@ function initGame() {
 
     async function render() {
         const gameState = await gameService.getGame(gameId);
-        //paintGuessedCharacters(gameState.correctlyGuessedCharacters);
+        paintGuessedCharacters(gameState.correctlyGuessedCharacters);
         paintWrongCharacters(gameState.wronglyGuessedCharacters);
-        paintImage();
+        paintImage(gameState.wronglyGuessedCharacters.length);
     }
 
     function paintGuessedCharacters(characters) {
-        for(const c in characters) {
-            toGuessPlaceholders[characters[c]].innerText = c;
+        for(const pair of characters) {
+            for(const i of pair.positions) {
+                toGuessPlaceholders[i].innerText = pair.char.toUpperCase();
+                paintButton(pair.char, "green");
+            }
         }
     }
 
     function paintWrongCharacters(characters) {
         for(const c of characters) {
-            alphaButtons[getIndexFromCharacter(c)].style.backgroundColor = "red";
+            paintButton(c, "red");
         }
     }
 
-    function paintImage() {
+    function paintImage(wrongGuesses) {
+        // @ts-ignore
+        hangmanImage.src = `/images/hangman_images/${wrongGuesses}F.svg`;
+    }
 
+    function paintButton(character, color) {
+        alphaButtons[getIndexFromCharacter(character)].style.backgroundColor = color;
+        alphaButtons[getIndexFromCharacter(character)].disabled = true;
     }
 
     async function characterPressedHandler(event) {
-        //const pressedCharacter = event.target.innerText;
-        //fetch(`/game/${gameId}/${pressedCharacter}`, {headers: new Headers({'content-type': 'text/html'})});
-        //const j = await response.json();
-        //console.log(j);
-        const pressedCharacter = event.target.innerText;
+        const pressedCharacter = event.target.innerText.toLowerCase();
         const result = await gameService.putCharacter(gameId, pressedCharacter);
-        console.log(result);
-        render();
+        if(result.state!=='ongoing') {
+            navigateToEndgame();
+        }
+        await render();
     }
+
+    function navigateToEndgame() {
+        // @ts-ignore
+        setTimeout(() => endgameRedirection.submit(), 1000);
+    }
+
+    await render();
 }
 
 window.onload = initGame;

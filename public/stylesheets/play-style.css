@@ -23,11 +23,14 @@ form{
     justify-content:space-between;
     height:100px;
     align-items:flex-end;
-    margin-bottom:20px;
+    width: min-content;
+    margin: 0 auto 20px auto;
 }
 
 span{
+    font-family: monospace;
     font-size:60px;
+    margin: 0 2px;
 }
 
 #available-characters-container{

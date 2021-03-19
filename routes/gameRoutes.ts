@@ -4,7 +4,7 @@ import {Gamestate, GameStateEnum} from "../services/gamestate.js";
 import mongo from "mongodb";
 import CorrectCharacter from "../services/correctCharacter.js"
 
-const MAX_NUMBER_OF_TRIES = 5;
+const MAX_NUMBER_OF_TRIES = 6;
 
 async function getGame(req, res){
     let gameId : string = "";
@@ -83,7 +83,7 @@ async function handlePutGameGameIdCharacter(req, res){
        //TODO: Update player score - for this the JWT Token is necessary bc. it contains the player_id
         await gamestateStore.update(gameId, {state: "won"});
     }else{ //If not completely gussed check if there are tries left
-        let numberOfTries = gamestate.correctlyGuessedCharacters.length + gamestate.wronglyGuessedCharacters.length;
+        let numberOfTries = /*gamestate.correctlyGuessedCharacters.length + */gamestate.wronglyGuessedCharacters.length;
         if(numberOfTries >= MAX_NUMBER_OF_TRIES){ //lost
             await gamestateStore.update(gameId, {state: "lost"});
         }
@@ -102,8 +102,6 @@ async function handlePutGameGameIdCharacter(req, res){
 }
 
 async function handleGetEndgame(req, res){
-    //res.render('endgame', {won: false, correctWord: 'Apple'});
-    //return;
     if(!req.cookies.game_id){
         res.status(400).send({error: 'The game has not been started yet'});
     }
@@ -113,10 +111,10 @@ async function handleGetEndgame(req, res){
     //Check if game is already finished
     if(gamestate.state === "won"){
         res.clearCookie("game_id");
-        res.render('endgame', {won: "won", correctWord: gamestate.wordToGuess});
+        res.render('endgame', {won: true, correctWord: gamestate.wordToGuess});
     }else if(gamestate.state === "lost"){
         res.clearCookie("game_id");
-        res.render('endgame', {won: "lost", correctWord: gamestate.wordToGuess});
+        res.render('endgame', {won: false, correctWord: gamestate.wordToGuess});
     }else {
         res.status(400).send({error: 'The game is not finished yet'});
     }
