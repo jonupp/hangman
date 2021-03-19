@@ -1,0 +1,15 @@
+.container{
+    margin: 0 auto;
+    width:60%;
+    display:grid;
+    grid-template-columns:1fr;
+    justify-content:center;
+}
+
+form{
+    display:contents;
+}
+
+#word, #result{
+    justify-self:center;
+}
