@@ -22,7 +22,9 @@
     "open": "^8.0.2"
   },
   "devDependencies": {
+    "@types/mongodb": "latest",
     "@types/cookie-parser": "latest",
+    "@types/body-parser": "latest",
     "@types/debug": "latest",
     "@types/express": "latest",
     "@types/hbs": "latest",

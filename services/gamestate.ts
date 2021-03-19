@@ -1,11 +1,21 @@
-export default class Gamestate {
-    wordToGuess: string;
-    correctlyGuessedCharacters: [];
-    wronglyGuessedCharacters: [];
+import CorrectCharacter from "./correctCharacter.js"
 
-    constructor(wordToGuess, correctlyGuessedCharacters, wronglyGuessedCharacters){
+export enum GameStateEnum{
+    ongoing = "ongoing",
+    won = "won",
+    lost = "lost"
+}
+
+export class Gamestate {
+    readonly wordToGuess: string;
+    correctlyGuessedCharacters: Array<CorrectCharacter>;
+    wronglyGuessedCharacters: Array<string>;
+    state : GameStateEnum;
+
+    constructor(wordToGuess : string) {
         this.wordToGuess = wordToGuess;
-        this.correctlyGuessedCharacters = correctlyGuessedCharacters;
-        this.wronglyGuessedCharacters = wronglyGuessedCharacters;
+        this.correctlyGuessedCharacters = new Array<CorrectCharacter>();
+        this.wronglyGuessedCharacters = new Array<string>();
+        this.state = GameStateEnum.ongoing;
     }
 }

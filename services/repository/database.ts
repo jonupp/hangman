@@ -1,4 +1,4 @@
-import pkg from 'mongodb';
+import pkg, {Db} from 'mongodb';
 const { MongoClient, ObjectID } = pkg;
 const connectionURL = 'mongodb://localhost:27017/';
 const dbName = 'hangmandb';
