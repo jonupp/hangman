@@ -111,10 +111,10 @@ async function handleGetEndgame(req, res){
     //Check if game is already finished
     if(gamestate.state === "won"){
         res.clearCookie("game_id");
-        res.render('endgame', {won: "won", correctWord: gamestate.correctWord});
+        res.render('endgame', {won: "won", correctWord: gamestate.wordToGuess});
     }else if(gamestate.state === "lost"){
         res.clearCookie("game_id");
-        res.render('endgame', {won: "lost", correctWord: gamestate.correctWord});
+        res.render('endgame', {won: "lost", correctWord: gamestate.wordToGuess});
     }else {
         res.status(400).send({error: 'The game is not finished yet'});
     }
