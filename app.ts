@@ -7,6 +7,7 @@ import {times} from "./handlebars-helper/handlebars-helper.js";
 import indexRouter from "./controller/routeController.js"
 import cookieParser from "cookie-parser";
 const app = express();
+import bodyParser from "body-parser";
 
 // view engine setup
 app.set("views", path.join(path.resolve(), "views"));

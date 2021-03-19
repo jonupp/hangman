@@ -1,0 +1,16 @@
+<div class="website-content">
+    <link rel='stylesheet' href='/stylesheets/endgame-style.css' />
+    <div class="container" id="endgame-container">
+        <p id="word">The word to guess was <span>{{correctWord}}</span></p>
+        <div id="result">
+        {{#if won}}
+            You won
+        {{else}}
+            You lost
+        {{/if}}
+        </div>
+        <form method="get" action="/game">
+            <Button id="play-button">Play again</Button>
+        </form>
+    </div>
+</div>

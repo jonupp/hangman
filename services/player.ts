@@ -1,10 +1,10 @@
 export class Player{
-    name: string;
+    username: string;
     passwordHash: string;
     score: number;
 
-    constructor(name, score, passwordHash) {
-        this.name = name;
+    constructor(username, score, passwordHash) {
+        this.username = username;
         this.score = score;
         this.passwordHash = passwordHash;
     }
