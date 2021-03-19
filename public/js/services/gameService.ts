@@ -1,4 +1,4 @@
-import { httpService } from './httpService.js'
+import {httpService} from './httpService.js'
 
 class GameService {
     async getGame(id) {
@@ -6,7 +6,7 @@ class GameService {
     }
 
     async putCharacter(id, character) {
-        return await httpService.ajax("PUT", `/game/${id}/${character}`, undefined, undefined);
+        return await httpService.ajax("GET", `/game/${id}/${character}`, undefined, undefined);
     }
 }
 

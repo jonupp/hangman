@@ -60,7 +60,8 @@ async function handlePutGameGameIdCharacter(req, res){
     }else{ //If not completely gussed check if there are tries left
         let numberOfTries = state.correctlyGuessedCharacters.length + state.wronglyGuessedCharacters.length;
         if(numberOfTries >= MAX_NUMBER_OF_TRIES){ //lost
-            res.redirect('/endgame/lost');
+            //res.redirect('/endgame/lost');
+            res.json({state: 'lost'});
         }else{ //guess again
             res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify(
@@ -73,6 +74,8 @@ async function handlePutGameGameIdCharacter(req, res){
 }
 
 async function handleGetEndgame(req, res){
+    //res.render('endgame', {won: false, correctWord: 'Apple'});
+    //return;
     if(!req.cookies.game_id){
         res.status(400).send({error: 'The game has not been started yet'});
     }
