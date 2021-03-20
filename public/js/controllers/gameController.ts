@@ -2,6 +2,7 @@ import { gameService } from "../services/gameService.js";
 import { parseCookie, getIndexFromCharacter } from "../utils/utils.js";
 
 async function initGame() {
+    // @ts-ignore
     const gameId = parseCookie().game_id;
     const alphaButtons = document.querySelectorAll("button");
     const toGuessPlaceholders = document.querySelectorAll("span");
