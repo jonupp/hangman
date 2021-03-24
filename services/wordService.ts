@@ -1,12 +1,8 @@
+import {wordStore} from "../services/wordStore.js"
+
 class WordService{
-    words : Array<string>
-
-    constructor(){
-        this.words = ["apple", "tree", "house"];
-    }
-
     async getRandomWord(){
-        return this.words[0];
+        return (await wordStore.getRandomWord()).word;
     }
 }
 

@@ -46,6 +46,10 @@ class Database {
             console.log("NOT YET CONNECTED TO DATABASE");
         }
     }
+
+    getDb(){ //This is needed for wordStore
+        return this.db;
+    }
 }
 
 export const database = new Database();

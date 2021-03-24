@@ -58,7 +58,7 @@ async function initGame() {
             document.cookie = "game_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
             setTimeout(()=>{homeRedirection.submit()}, 2000);
         }
-
+        console.log(result);
         if(result.state==='won' || result.state === 'lost') {
             navigateToEndgame();
         }
