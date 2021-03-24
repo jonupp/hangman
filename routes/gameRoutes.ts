@@ -86,7 +86,6 @@ async function handlePutGameGameIdCharacter(req, res){
         await gamestateStore.update(gameId, {state: "won"});
     }else{ //If not completely gussed check if there are tries left
         let numberOfTries = gamestate.wronglyGuessedCharacters.length;
-        console.log(numberOfTries + " " + process.env.MAX_NUMBER_OF_TRIES);
         if(numberOfTries >= process.env.MAX_NUMBER_OF_TRIES!){ //lost
             await gamestateStore.update(gameId, {state: "lost"});
         }
