@@ -3,6 +3,7 @@ import {gamestateStore} from "../services/gamestateStore.js";
 import {Gamestate, GameStateEnum} from "../services/gamestate.js";
 import mongo from "mongodb";
 import CorrectCharacter from "../services/correctCharacter.js"
+import {playerStore} from "../services/playerStore.js";
 
 const MAX_NUMBER_OF_TRIES = process.env.MAX_NUMBER_OF_TRIES!;
 
@@ -81,10 +82,12 @@ async function handlePutGameGameIdCharacter(req, res){
 
     //Word completely guessed?
     if(wordToGuessArray.every((char)=>{  return gamestate.correctlyGuessedCharacters.some((correctChar)=>{return char===correctChar.char})})){
-       //TODO: Update player score - for this the JWT Token is necessary bc. it contains the player_id
+        let newScore =  (await playerStore.get({_id: new mongo.ObjectId(req.player_id)},{},1))[0].score + 1;
+        await playerStore.update(req.player_id, {score:newScore});
+
         await gamestateStore.update(gameId, {state: "won"});
     }else{ //If not completely gussed check if there are tries left
-        let numberOfTries = /*gamestate.correctlyGuessedCharacters.length + */gamestate.wronglyGuessedCharacters.length;
+        let numberOfTries = gamestate.wronglyGuessedCharacters.length;
         if(numberOfTries >= MAX_NUMBER_OF_TRIES){ //lost
             await gamestateStore.update(gameId, {state: "lost"});
         }
