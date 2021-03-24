@@ -15,5 +15,5 @@ node_modules/
 data/*
 
 #Don't ignore
-!create-db-script.js
+!initdb.js
 !data/.gitkeep
