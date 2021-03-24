@@ -11,11 +11,13 @@ export class Gamestate {
     correctlyGuessedCharacters: Array<CorrectCharacter>;
     wronglyGuessedCharacters: Array<string>;
     state : GameStateEnum;
+    gameOwnerId : string;
 
-    constructor(wordToGuess : string) {
+    constructor(wordToGuess : string, gameOwnerId : string) {
         this.wordToGuess = wordToGuess;
         this.correctlyGuessedCharacters = new Array<CorrectCharacter>();
         this.wronglyGuessedCharacters = new Array<string>();
         this.state = GameStateEnum.ongoing;
+        this.gameOwnerId = gameOwnerId;
     }
 }

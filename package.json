@@ -19,7 +19,10 @@
     "http-errors": "~1.6.3",
     "mongodb": "^3.6.4",
     "morgan": "~1.9.1",
-    "open": "^8.0.2"
+    "open": "^8.0.2",
+    "dotenv": "latest",
+    "crypto-js": "latest",
+    "jsonwebtoken": "latest"
   },
   "devDependencies": {
     "@types/mongodb": "latest",

@@ -8,7 +8,7 @@ import indexRouter from "./controller/routeController.js"
 import cookieParser from "cookie-parser";
 const app = express();
 import bodyParser from "body-parser";
-
+import dotenv from "dotenv";
 // view engine setup
 app.set("views", path.join(path.resolve(), "views"));
 app.set('view engine', 'hbs');
@@ -21,6 +21,8 @@ app.use(express.static(path.resolve("public")));
 app.use(cookieParser());
 
 app.use('/', indexRouter);
+
+dotenv.config();
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

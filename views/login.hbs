@@ -17,6 +17,11 @@
         <button id="login-button" formaction="/login">login</button>
         <button formaction="/register">register</button>
     </form>
+    {{#if hint}}
+        <div>
+            {{hint.Text}}
+        </div>
+    {{/if}}
 </div>
 </body>
 </html>

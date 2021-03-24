@@ -4,7 +4,7 @@ import {Gamestate, GameStateEnum} from "../services/gamestate.js";
 import mongo from "mongodb";
 import CorrectCharacter from "../services/correctCharacter.js"
 
-const MAX_NUMBER_OF_TRIES = 6;
+const MAX_NUMBER_OF_TRIES = process.env.MAX_NUMBER_OF_TRIES!;
 
 async function getGame(req, res){
     let gameId : string = "";
@@ -12,9 +12,8 @@ async function getGame(req, res){
     if(req.cookies.game_id){
         gameId = req.cookies.game_id;
     }else { //create new game
-        //TODO: Insert game_owner (player_id) into gamestate to prevent griefing
         let word = await wordService.getRandomWord();
-        let inserted = await gamestateStore.add(new Gamestate(word));
+        let inserted = await gamestateStore.add(new Gamestate(word, req.player_id));
         gameId = String(inserted.ops[0]._id);
         res.cookie('game_id', gameId, {maxAge:900000});
     }
@@ -36,13 +35,15 @@ async function handleGetGameGameId(req, res){
 }
 
 async function handlePutGameGameIdCharacter(req, res){
-    //TODO: Check if request comes from the player owning the game
-    //Otherwise everybody can send requests and grief other games
-
     let gameId = req.params.game_id;
     let character = req.params.character;
 
     let gamestate = (await gamestateStore.get({_id: new mongo.ObjectId(gameId)}, {}, 1))[0];
+
+    if(req.player_id !== gamestate.gameOwnerId){ //Only owner of game can play
+        res.status(400).send({ error: "You are not the owner of this game" });
+        return;
+    }
 
     if(gamestate.state !== "ongoing"){
         res.status(400).send({ error: "Can not put to finished game" });
