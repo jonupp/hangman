@@ -4,9 +4,9 @@
     <link rel='stylesheet' href='/stylesheets/home-style.css' />
 
     <div id="content">
-    <p>Hi name!</p>
+    <p>Hi {{username}}!</p>
     <img id="image" src="/images/stickfigure.png">
-    <p id="saved-text">You saved Bob xxx times!</p>
+        <p id="saved-text">You saved Bob {{score}} {{#ifeq score 1}} time{{else}} times{{/ifeq}}!</p>
     <form method="get" action="/game">
         <button id="play-button">Play</button>
     </form>

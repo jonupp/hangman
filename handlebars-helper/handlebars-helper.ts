@@ -5,4 +5,13 @@ function times(n : number, block) {
     return accum;
 }
 
-export {times};
+function ifeq(a, b, opts) {
+    if (a === b) { // @ts-ignore
+        return opts.fn(this);
+    }
+    else { // @ts-ignore
+        return opts.inverse(this);
+    }
+}
+
+export {times, ifeq};

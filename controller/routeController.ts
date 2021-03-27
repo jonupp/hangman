@@ -1,7 +1,7 @@
 import express from "express";
 import {playerStore} from "../services/playerStore.js";
 import {handleGetHome, handleGetRanking} from "../routes/index.js";
-import {handleGetLogin, handlePostRegister, handlePostLogin} from "../routes/accountRoutes.js";
+import {handleGetLogin, handleGetLogout, handlePostRegister, handlePostLogin} from "../routes/accountRoutes.js";
 import {handleGetEndgame, getGame, handleGetGameGameId, handlePutGameGameIdCharacter} from "../routes/gameRoutes.js";
 
 import {authentication_middleware} from "../utils/authentication_middleware.js";
@@ -11,6 +11,8 @@ const router = express.Router();
 router.get('/', authentication_middleware, handleGetHome);
 
 router.get('/login', handleGetLogin);
+
+router.get('/logout', handleGetLogout);
 
 router.get('/game', authentication_middleware, getGame);
 

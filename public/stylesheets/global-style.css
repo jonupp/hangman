@@ -32,17 +32,29 @@ nav{
 }
 
 .nav-element a{
-  width:200px;
-  display:inline-block;
+  margin: 0 5px;
+  padding: 10px 24px;
+  display: inline-block;
   text-decoration: none;
   text-align: center;
   transition: background-color ease-in 200ms;
   border-radius: 320px;
 }
 
-.nav-element a:hover{
+.nav-element a:hover {
   transition: background-color ease-in 200ms;
   background-color: #9dd5ff;
+}
+
+#logout-button {
+  border-radius: 320px;
+  color: white;
+  background-color: #b82b2b;
+}
+
+#logout-button:hover {
+  transition: background-color ease-in 200ms;
+  background-color: #f2949b;
 }
 
 nav ol {

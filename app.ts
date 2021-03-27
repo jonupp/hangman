@@ -3,16 +3,19 @@ import express from "express";
 import path from "path";
 import logger from "morgan";
 import handlebars from "hbs";
-import {times} from "./handlebars-helper/handlebars-helper.js";
+import {times, ifeq} from "./handlebars-helper/handlebars-helper.js";
 import indexRouter from "./controller/routeController.js"
 import cookieParser from "cookie-parser";
-const app = express();
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
+
+const app = express();
+
 // view engine setup
 app.set("views", path.join(path.resolve(), "views"));
 app.set('view engine', 'hbs');
 handlebars.registerHelper("times",times);
+handlebars.registerHelper("ifeq",ifeq);
 
 app.use(logger('dev'));
 app.use(express.json());

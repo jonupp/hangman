@@ -7,6 +7,11 @@ function handleGetLogin(req,res){
     res.render('login', {title:'hangman', layout:false});
 }
 
+function handleGetLogout(req, res, next) {
+    res.cookie('jwt_token', {maxAge: 0});
+    res.redirect("/login");
+}
+
 async function handlePostRegister(req, res){
     let username : string = req.body.username;
     let password : string = req.body.password;
@@ -38,4 +43,4 @@ async function handlePostLogin(req, res){
     }
 }
 
-export {handleGetLogin, handlePostRegister, handlePostLogin};
+export {handleGetLogin, handlePostRegister, handlePostLogin, handleGetLogout};

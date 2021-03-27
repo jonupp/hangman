@@ -1,7 +1,8 @@
 import {playerStore} from "../services/playerStore.js";
 
-function handleGetHome(req, res){
-  res.render('home', { title: 'hangman' });
+async function handleGetHome(req, res){
+  const { username, score } = await playerStore.getByPlayerId(req.player_id);
+  res.render('home', { title: 'hangman', username, score });
 }
 
 async function handleGetRanking(req, res){
