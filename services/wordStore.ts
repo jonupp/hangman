@@ -1,9 +1,9 @@
 // @ts-ignore
-import {database} from "./repository/database.js";
+import {databaseService} from "./repository/database.js";
 
 class WordStore {
     async getRandomWord() {
-        return (await database.getDb().collection("words").aggregate( [ { $sample: { size: 1 } } ] ).toArray())[0];
+        return (await databaseService.db.collection("words").aggregate( [ { $sample: { size: 1 } } ] ).toArray())[0];
     }
 }
 

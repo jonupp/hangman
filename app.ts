@@ -6,8 +6,6 @@ import handlebars from "hbs";
 import {times, ifeq} from "./handlebars-helper/handlebars-helper.js";
 import indexRouter from "./controller/routeController.js"
 import cookieParser from "cookie-parser";
-import bodyParser from "body-parser";
-import dotenv from "dotenv";
 
 const app = express();
 
@@ -24,8 +22,6 @@ app.use(express.static(path.resolve("public")));
 app.use(cookieParser());
 
 app.use('/', indexRouter);
-
-dotenv.config();
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

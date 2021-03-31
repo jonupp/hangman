@@ -1,3 +1,5 @@
+
+
 .container{
     margin: 0 auto;
     width:60%;
@@ -12,4 +14,25 @@ form{
 
 #word, #result{
     justify-self:center;
+}
+
+.result_image{
+    width:200px;
+    height:300px;
+}
+
+p{
+    text-align:center;
+}
+
+#won-text{
+    color:var(--green);
+}
+
+#lost-text{
+    color:var(--red);
+}
+
+#word-to-guess{
+    font-weight: bold;
 }

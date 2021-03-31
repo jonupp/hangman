@@ -1,12 +1,17 @@
 <div class="website-content">
     <link rel='stylesheet' href='/stylesheets/endgame-style.css' />
     <div class="container" id="endgame-container">
-        <p id="word">The word to guess was <span>{{correctWord}}</span></p>
+        {{#if won}}
+        <h1 id="won-text">You won!</h1>
+    {{else}}
+        <h1 id="lost-text">You lost!</h1>
+    {{/if}}
+        <p id="word">The word to guess was <span id="word-to-guess">{{correctWord}}</span></p>
         <div id="result">
         {{#if won}}
-            You won
+            <img class="result_image" src="/images/endgame_hangman_images/stickman_happy.png">
         {{else}}
-            You lost
+            <img class="result_image" src="/images/endgame_hangman_images/stickman_sad.png">
         {{/if}}
         </div>
         <form method="get" action="/game">

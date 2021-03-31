@@ -1,6 +1,7 @@
 :root {
   --blue: #55aaff;
   --red: #eb3434;
+  --green: #60ba00;
   --font-size: 30px;
   /*--font-family:'Chalkduster', fantasy;*/
   --font-family: 'Comic Sans MS', fantasy;
@@ -97,7 +98,7 @@ nav{
 
 #play-button:hover{
   transition:all ease-in 200ms;
-  background-color:var(--red);
+  background-color:var(--green);
   color:white;
   border-radius:0;
 }
@@ -114,6 +115,10 @@ h1{
   margin: 0px;
   text-align:center;
   font-size: 50px;
+}
+
+h2{
+  text-align:center;
 }
 
 .website-content{
