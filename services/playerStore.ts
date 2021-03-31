@@ -4,19 +4,19 @@ import mongo from "mongodb";
 
 class PlayerStore {
     async add(player : Player) {
-        return await database.insert('players', player);
+        return await database.db.collection('players').insertOne(player);
     }
 
     async get(filter, sort, limit) {
-        return await database.get('players', filter, sort, limit);
+        return await database.db.collection('players').find(filter).sort(sort).limit(limit).toArray();
     }
 
     async getByPlayerId(id) {
-        return (await database.get('players', new mongo.ObjectID(id), {}, 1))[0];
+        return (await database.db.collection('players').findOne(new mongo.ObjectID(id)));
     }
 
     async update(id, data) {
-        return await database.update('players', id, data);
+        return await database.db.collection('players').updateOne({_id:new mongo.ObjectId(id)},{$set: data});
     }
 }
 

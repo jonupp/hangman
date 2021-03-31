@@ -1,6 +1,7 @@
 :root {
   --blue: #55aaff;
   --red: #eb3434;
+  --green: #60ba00;
   --font-size: 30px;
   --font-family:'Kalam', cursive;
 }
@@ -95,7 +96,7 @@ nav{
 
 #play-button:hover{
   transition:all ease-in 200ms;
-  background-color:var(--red);
+  background-color:var(--green);
   color:white;
   border-radius:0;
 }
@@ -110,6 +111,10 @@ button:focus, button:active, button:hover{
 
 h1{
   margin: 0px;
+  text-align:center;
+}
+
+h2{
   text-align:center;
 }
 

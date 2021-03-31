@@ -10,7 +10,7 @@ services:
         ports:
             - "27017:27017"
         volumes:
-            - db-data:/data/db
+            - db-data:/var/lib/postgresql/data
             - ./services/repository/initdb.js:/docker-entrypoint-initdb.d/initdb.js:ro #ro = read only
         container_name: hangmandb
         
