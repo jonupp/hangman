@@ -59,6 +59,7 @@ async function initGame() {
             setTimeout(()=>{homeRedirection.submit()}, 2000);
         }
         if(result.state==='won' || result.state === 'lost') {
+            disableAllButtons();
             navigateToEndgame();
         }
         await render();
@@ -67,6 +68,12 @@ async function initGame() {
     function navigateToEndgame() {
         // @ts-ignore
         setTimeout(() => endgameRedirection.submit(), 1000);
+    }
+
+    function disableAllButtons() {
+        for(const alphaButton of alphaButtons) {
+            alphaButton.removeEventListener('click', characterPressedHandler);
+        }
     }
 
     await render();
