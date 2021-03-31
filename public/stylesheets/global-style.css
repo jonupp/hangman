@@ -2,7 +2,8 @@
   --blue: #55aaff;
   --red: #eb3434;
   --font-size: 30px;
-  --font-family:'Kalam', cursive;
+  /*--font-family:'Chalkduster', fantasy;*/
+  --font-family: 'Comic Sans MS', fantasy;
 }
 
 body{
@@ -20,7 +21,7 @@ input{
 }
 
 button{
-  font-family: 'Kalam', cursive;
+  font-family: var(--font-family);
   font-size:var(--font-size);
 }
 
@@ -69,7 +70,8 @@ nav ol li{
 }
 
 #title{
-  font-size: 70px;
+  font-size: 60px;
+  font-family: 'Kalam', cursive;
 }
 
 #space{
@@ -111,6 +113,7 @@ button:focus, button:active, button:hover{
 h1{
   margin: 0px;
   text-align:center;
+  font-size: 50px;
 }
 
 .website-content{

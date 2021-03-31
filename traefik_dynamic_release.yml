@@ -1,0 +1,19 @@
+http:
+  routers:
+    my-router:
+      rule: "PathPrefix(`/`)"
+      entryPoints:
+        - "web"
+      service: "my-service"
+
+  services:
+    my-service:
+      loadBalancer:
+        healthCheck:
+          path: /login
+          interval: "10s"
+          timeout: "3s"
+        servers:
+          #- url: "http://express:3000"
+          - url: "http://hangman_express_1:3000"
+          - url: "http://hangman_express_2:3000"

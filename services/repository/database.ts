@@ -1,6 +1,6 @@
 import pkg, {Db} from 'mongodb';
 const { MongoClient, ObjectID } = pkg;
-const connectionURL = 'mongodb://localhost:27017/';
+const connectionURL = process.env.NODE_ENV =='release'?'mongodb://hangmandb:27017/':'mongodb://localhost:27017/';
 const dbName = 'hangmandb';
 
 class Database {
