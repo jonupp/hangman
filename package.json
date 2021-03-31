@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "startexpress": "node bin/www",
+    "startexpress": "node -r dotenv/config bin/www",
     "test": "node node_modules/mocha/bin/mocha",
     "createdockercontainer": "docker run --name hangmandb -p 27017:27017 -v mongoman:/data/db mongo",
     "startdb": "docker start hangmandb",
@@ -17,7 +17,7 @@
     "express": "~4.16.1",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
-    "mongodb": "^3.6.4",
+    "mongodb": "latest",
     "morgan": "~1.9.1",
     "open": "^8.0.2",
     "dotenv": "latest",

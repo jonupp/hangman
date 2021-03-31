@@ -2,6 +2,8 @@ import pkg, {Db} from 'mongodb';
 const { MongoClient, ObjectID } = pkg;
 const connectionURL = 'mongodb://localhost:27017/';
 const dbName = 'hangmandb';
+import debug from 'debug';
+const log = debug("hangman:server");
 
 class DatabaseService {
     // @ts-ignore
@@ -12,20 +14,19 @@ class DatabaseService {
     }
 
     connectWithRetry() {
-        MongoClient.connect(connectionURL, (err, client) => {
+        MongoClient.connect(connectionURL, { useUnifiedTopology: true }, (err, client) => {
             if (err) {
-                console.log("mongodb connection error: " + err);
-                console.log("mongodb connection RETRY");
+                log("mongodb connection error: " + err);
+                log("mongodb connection RETRY");
                 setTimeout(() => this.connectWithRetry(), 1000);
                 return;
             }
-            console.log("mongodb connection success");
+            log("mongodb connection success");
             this.db = client.db(dbName);
-            this.db.on('close', () => {console.log("mongodb connection closed");});
-            this.db.on('reconnect', () => {console.log("mongodb reconnected");});
-            this.db.on('error', function(err) { console.log("mongodb error: " + err.message); });
+            client.on('close', () => {console.log("mongodb connection closed");});
+            client.on('error', function(err) { console.log("mongodb error: " + err.message); });
         });
     }
 }
 
-export const database = new DatabaseService();
+export const databaseService = new DatabaseService();
