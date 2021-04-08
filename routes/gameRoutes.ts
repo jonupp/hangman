@@ -90,7 +90,6 @@ async function handlePutGameGameIdCharacter(req, res){
     }
     //Updated gamestate is needed
     gamestate = await gamestateStore.getById(gameId);
-    console.log(gamestate);
     res.setHeader("Content-Type", "application/json");
     res.end(JSON.stringify(
         {
