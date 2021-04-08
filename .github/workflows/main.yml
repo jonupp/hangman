@@ -33,5 +33,4 @@ jobs:
         run: npm install
       - name: Compile typescript files
         run: tsc
-      - name: Run tests
-        run: npm test
+
