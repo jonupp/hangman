@@ -1005,5 +1005,5 @@ let words = [ "Armour",
     "youngster" ];
 
 words.forEach((wordString)=>{
-    db.words.insertOne({word:wordString});
+    db.words.insertOne({word: wordString});
 });

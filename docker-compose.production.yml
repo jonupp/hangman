@@ -20,7 +20,7 @@ services:
             - "27017:27017"
         volumes:
             - db-data:/data/db
-            - ./services/repository/initdb.js:/docker-entrypoint-initdb.d/initdb.js:ro #ro = read only
+            - ./initdb/initdb.js:/docker-entrypoint-initdb.d/initdb.js:ro #ro = read only
         container_name: hangmandb
         networks:
             - internal

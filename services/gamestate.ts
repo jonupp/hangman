@@ -10,10 +10,10 @@ export class Gamestate {
     readonly wordToGuess: string;
     correctlyGuessedCharacters: Array<CorrectCharacter>;
     wronglyGuessedCharacters: Array<string>;
-    state : GameStateEnum;
-    gameOwnerId : string;
+    state: GameStateEnum;
+    gameOwnerId: string;
 
-    constructor(wordToGuess : string, gameOwnerId : string) {
+    constructor(wordToGuess: string, gameOwnerId: string) {
         this.wordToGuess = wordToGuess;
         this.correctlyGuessedCharacters = new Array<CorrectCharacter>();
         this.wronglyGuessedCharacters = new Array<string>();

@@ -21,8 +21,8 @@ class DatabaseService {
             }
             log("mongodb connection success");
             this.db = client.db(process.env.DBNAME);
-            client.on('close', () => {log("mongodb connection closed");});
-            client.on('error', function(err) { log("mongodb error: " + err.message); });
+            client.on("close", () => {log("mongodb connection closed");});
+            client.on("error", function(err) { log("mongodb error: " + err.message); });
         });
     }
 }

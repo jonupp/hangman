@@ -4,25 +4,21 @@ services:
     mongo:
         image: "mongo"
         environment:
-            #MONGO_INITDB_ROOT_USERNAME: <admin-user>
-            #MONGO_INITDB_ROOT_PASSWORD: <admin-password>
             MONGO_INITDB_DATABASE: hangmandb
         ports:
             - "27017:27017"
         volumes:
             - db-data:/var/lib/postgresql/data
-            - ./services/repository/initdb.js:/docker-entrypoint-initdb.d/initdb.js:ro #ro = read only
+            - ./initdb/initdb.js:/docker-entrypoint-initdb.d/initdb.js:ro #ro = read only
         container_name: hangmandb
 
     traefik:
         image: "traefik:v2.4"
         container_name: "traefik"
         command:
-        #- "--log.level=DEBUG"
         - "--api.insecure=true"
         - "--providers.docker=true"
         - "--providers.docker.exposedbydefault=false"
-        #- "--entrypoints.web.address=:80"
         ports:
             - "80:80"
             - "8080:8080"

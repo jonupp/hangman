@@ -9,7 +9,6 @@ function authentication_middleware(req, res, next){
     }catch(err){
         res.redirect("/login");
     }
-
 }
 
 export {authentication_middleware};

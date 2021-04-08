@@ -1,11 +1,12 @@
 h1 {
-    font-size: 0.8em;
-    height: 200px;
+  font-size: 0.8em;
+  height: 200px;
 }
 
-h2, pre {
-    font-size: 0.4em;
-    width: 100vw;
-    overflow-x: scroll;
-    margin: 0;
+h2,
+pre {
+  font-size: 0.4em;
+  width: 100vw;
+  overflow-x: scroll;
+  margin: 0;
 }

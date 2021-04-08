@@ -1,4 +1,3 @@
-// @ts-ignore
 import {databaseService} from "./repository/database.js";
 
 class WordStore {
@@ -7,5 +6,4 @@ class WordStore {
     }
 }
 
-// @ts-ignore
 export const wordStore = new WordStore();

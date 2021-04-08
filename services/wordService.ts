@@ -1,4 +1,4 @@
-import {wordStore} from "../services/wordStore.js"
+import {wordStore} from "./wordStore.js"
 
 class WordService{
     async getRandomWord(){

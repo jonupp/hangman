@@ -1,38 +1,37 @@
-
-
-.container{
-    margin: 0 auto;
-    width:60%;
-    display:grid;
-    grid-template-columns:1fr;
-    justify-content:center;
+.container {
+  margin: 0 auto;
+  width: 60%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
 }
 
-form{
-    display:contents;
+form {
+  display: contents;
 }
 
-#word, #result{
-    justify-self:center;
+#word,
+#result {
+  justify-self: center;
 }
 
-.result_image{
-    width:200px;
-    height:300px;
+.result_image {
+  width: 200px;
+  height: 300px;
 }
 
-p{
-    text-align:center;
+p {
+  text-align: center;
 }
 
-#won-text{
-    color:var(--green);
+#won-text {
+  color: var(--green);
 }
 
-#lost-text{
-    color:var(--red);
+#lost-text {
+  color: var(--red);
 }
 
-#word-to-guess{
-    font-weight: bold;
+#word-to-guess {
+  font-weight: bold;
 }

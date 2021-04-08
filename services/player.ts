@@ -3,7 +3,7 @@ export class Player{
     passwordHash: string;
     score: number;
 
-    constructor(username, score, passwordHash) {
+    constructor(username: string, score: number, passwordHash: string) {
         this.username = username;
         this.score = score;
         this.passwordHash = passwordHash;
