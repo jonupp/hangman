@@ -37,7 +37,7 @@ services:
             - "8080:8080"
         volumes:
             - "./traefik.yml:/etc/traefik/traefik.yml"
-            - "./traefik_dynamic_production.yml:/etc/traefik/traefik_dynamic.yml"
+            - "./traefik_dynamic.production.yml:/etc/traefik/traefik_dynamic.yml"
             - "/var/run/docker.sock:/var/run/docker.sock:ro"
         networks:
             - internal

@@ -9,7 +9,6 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 
-// view engine setup
 app.set("views", path.join(path.resolve(), "views"));
 app.set('view engine', 'hbs');
 handlebars.registerHelper("times",times);
