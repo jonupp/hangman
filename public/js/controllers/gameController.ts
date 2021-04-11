@@ -2,13 +2,13 @@ import { gameService } from "../services/gameService.js";
 import { parseCookie, getIndexFromCharacter } from "../utils/utils.js";
 
 async function initGame() {
-    // @ts-ignore
     const gameId = parseCookie().game_id;
     const alphaButtons = document.querySelectorAll("button");
     const toGuessPlaceholders = document.querySelectorAll("span");
-    const endgameRedirection = document.querySelector("#endgame-redirection");
-    const homeRedirection : HTMLFormElement = document.querySelector("#home-redirection")! ;
-    const hangmanImage = document.querySelector("#state-image");
+    const endgameRedirection : HTMLFormElement = document.querySelector("#endgame-redirection")!;
+    const homeRedirection : HTMLFormElement = document.querySelector("#home-redirection")!;
+    const hangmanImage : HTMLFormElement = document.querySelector("#state-image")!;
+    const errorP = document.getElementById('errorMessage')!;
 
     for(const alphaButton of alphaButtons) {
         alphaButton.addEventListener('click', characterPressedHandler);
@@ -37,8 +37,7 @@ async function initGame() {
     }
 
     function paintImage(wrongGuesses) {
-        // @ts-ignore
-        hangmanImage.src = `/images/hangman_images/${wrongGuesses}F.svg`;
+        hangmanImage!.src = `/images/hangman_images/${wrongGuesses}F.svg`;
     }
 
     function paintButton(character, color) {
@@ -49,10 +48,7 @@ async function initGame() {
     async function characterPressedHandler(event) {
         const pressedCharacter = event.target.innerText.toLowerCase();
         const result = await gameService.putCharacter(gameId, pressedCharacter);
-
         if(result.error){
-            //SHOW THAT IT IS BAD
-            let errorP = document.getElementById('errorMessage')!;
             errorP.innerText = result.error;
             errorP.hidden = false;
             document.cookie = "game_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
@@ -66,8 +62,7 @@ async function initGame() {
     }
 
     function navigateToEndgame() {
-        // @ts-ignore
-        setTimeout(() => endgameRedirection.submit(), 1000);
+        setTimeout(() => endgameRedirection!.submit(), 1000);
     }
 
     function disableAllButtons() {

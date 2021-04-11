@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "startexpress": "node -r dotenv/config bin/www",
-    "startproduction": "docker-compose -f docker-compose.production.yml up",
+    "production": "docker-compose -f docker-compose.production.yml up",
+    "productionbuild": "docker-compose -f docker-compose.production.yml up --build",
     "test": "node node_modules/mocha/bin/mocha",
     "createdockercontainer": "docker run --name hangmandb -p 27017:27017 -v mongoman:/data/db mongo",
     "startdb": "docker start hangmandb",

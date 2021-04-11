@@ -2,10 +2,10 @@
     <link rel='stylesheet' href='/stylesheets/endgame-style.css' />
     <div class="container" id="endgame-container">
         {{#if won}}
-        <h1 id="won-text">You won!</h1>
-    {{else}}
-        <h1 id="lost-text">You lost!</h1>
-    {{/if}}
+            <h1 id="won-text">You won!</h1>
+        {{else}}
+            <h1 id="lost-text">You lost!</h1>
+        {{/if}}
         <p id="word">The word to guess was <span id="word-to-guess">{{correctWord}}</span></p>
         <div id="result">
         {{#if won}}
