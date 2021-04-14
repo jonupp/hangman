@@ -21,7 +21,6 @@
     "http-errors": "~1.6.3",
     "mongodb": "latest",
     "morgan": "~1.9.1",
-    "open": "^8.0.2",
     "dotenv": "latest",
     "crypto-js": "latest",
     "jsonwebtoken": "latest"

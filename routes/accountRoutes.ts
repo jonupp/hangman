@@ -32,7 +32,7 @@ async function handlePostLogin(req, res){
     let player = await playerStore.getPlayerByUsername(username);
     if(player){
         if(CryptoJS.SHA512(process.env.NONCE + password).toString(CryptoJS.enc.Hex)===player.passwordHash){
-            let token = jwt.sign({player_id:player._id}, process.env.SECRET);
+            let token = jwt.sign({player_id:player._id}, process.env.SECRET, {expiresIn: 60*60*24});
             res.cookie("jwt_token", token, {httpOnly: true});
             res.redirect("/");
         }else{

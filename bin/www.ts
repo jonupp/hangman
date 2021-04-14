@@ -75,9 +75,4 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr?.port;
   log('Listening on ' + bind);
-  // if(process.env.DEBUG=='hangman:server') {
-  //   const url = `http://localhost:${port}`;
-  //   console.log(`Opening default browser at: ${url}\n`);
-  //   open(url);
-  // }
 }
