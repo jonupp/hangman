@@ -4,7 +4,6 @@ import app from "../app.js";
 import debug from "debug";
 const log = debug("hangman:server");
 import http from "http";
-import open from "open";
 
 /**
  * Get port from environment and store in Express.
