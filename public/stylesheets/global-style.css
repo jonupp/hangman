@@ -3,7 +3,6 @@
   --red: #eb3434;
   --green: #60ba00;
   --font-size: 30px;
-  /*--font-family:'Chalkduster', fantasy;*/
   --font-family: "Comic Sans MS", fantasy;
 }
 
@@ -133,6 +132,7 @@ footer span {
   text-align: center;
   display: block;
   font-size: 15px;
+  font-family: monospace;
   opacity: 60%;
   margin-bottom: 20px;
 }
@@ -143,4 +143,8 @@ footer {
 
 a:visited {
   color: black;
+}
+
+a:link {
+  color:inherit;
 }

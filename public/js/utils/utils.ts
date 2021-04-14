@@ -1,4 +1,4 @@
-export function parseCookie() {
+export function parseCookie() : any {
     return document.cookie
         .split(';')
         .reduce((res, c) => {
