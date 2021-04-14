@@ -11,6 +11,14 @@ services:
         deploy:
             mode: replicated
             replicas: 2
+        depends_on:
+            mongo:
+                condition: service_healthy
+        healthcheck:
+            test: curl http://hangman_express_1:3000 && curl http://hangman_express_2:3000
+            interval: 10s
+            timeout: 10s
+            retries: 5
 
     mongo:
         image: "mongo"
@@ -24,6 +32,11 @@ services:
         container_name: hangmandb
         networks:
             - internal
+        healthcheck:
+            test: echo 'db.runCommand("ping").ok'
+            interval: 10s
+            timeout: 10s
+            retries: 5
 
     traefik:
         image: "traefik:v2.4"
@@ -43,7 +56,8 @@ services:
             - internal
             - external
         depends_on:
-            - express
+            express:
+                condition: service_healthy
 
 volumes:
     db-data:
