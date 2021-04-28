@@ -19,7 +19,7 @@ Hangman is available under http://www.localhost:80 (via load-balancer).
 
 ### Production
 
-`docker-compose -f docker-compose.release up` or `npm run production`
+`docker-compose -f docker-compose.production.yml up` or `npm run production`
 
 Starts MongoDB, traefik and two instances of the hangman service.
 Hangman is available under http://www.localhost:80 (via load-balancer).
