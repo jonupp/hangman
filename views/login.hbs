@@ -12,8 +12,8 @@
 <div id="content">
     <h1>Hangman</h1>
     <form id="form" method="post">
-        <input name="username" id="input-username" placeholder="username" type="text">
-        <input name="password" id="input-password" placeholder="password" type="password">
+        <input name="username" id="input-username" placeholder="username" type="text" minlength="3" required>
+        <input name="password" id="input-password" placeholder="password" type="password" minlength="6" required>
         <button id="login-button" formaction="/login">login</button>
         <button formaction="/register">register</button>
     </form>
