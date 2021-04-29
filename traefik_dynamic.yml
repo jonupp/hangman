@@ -4,10 +4,10 @@ http:
             rule: "PathPrefix(`/`)"
             entryPoints:
                 - "web"
-            service: "my-service"
+            service: "hangman-service"
             
     services:
-        my-service:
+        hangman-service:
             loadBalancer:
                 healthCheck:
                     path: /login
