@@ -1,6 +1,7 @@
+import mongo from "mongodb";
+
 import {databaseService} from "./repository/database.js";
 import {Player} from "./player.js";
-import mongo from "mongodb";
 
 class PlayerStore {
     async add(player: Player) {

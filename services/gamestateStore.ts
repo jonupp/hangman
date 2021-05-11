@@ -1,6 +1,7 @@
+import mongo from "mongodb"
+
 import {databaseService} from "./repository/database.js";
 import {Gamestate} from "./gamestate";
-import mongo from "mongodb"
 
 class GamestateStore {
     async add(gamestate: Gamestate) {

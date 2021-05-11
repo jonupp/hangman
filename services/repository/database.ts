@@ -1,7 +1,9 @@
 import pkg, {Db} from 'mongodb';
-const { MongoClient } = pkg;
 import debug from 'debug';
+
 const log = debug("hangman:server");
+const { MongoClient } = pkg;
+
 
 class DatabaseService {
     // @ts-ignore

@@ -1,4 +1,5 @@
 import express from "express";
+
 import {handleGetHome, handleGetRanking} from "../routes/index.js";
 import {handleGetLogin, handleGetLogout, handlePostRegister, handlePostLogin} from "../routes/accountRoutes.js";
 import {handleGetEndgame, getGame, handleGetGameGameId, handlePutGameGameIdCharacter} from "../routes/gameRoutes.js";

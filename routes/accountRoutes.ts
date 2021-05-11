@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 
 import {playerStore} from "../services/playerStore.js";
 import {Player} from "../services/player.js";
-import {gamestateStore} from "../services/gamestateStore.js";
 
 function handleGetLogin(req,res){
     res.render('login', {title: 'hangman', layout: false});
