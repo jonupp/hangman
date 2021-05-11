@@ -1,4 +1,4 @@
-import CryptoJS from 'crypto-js';
+import CryptoJS from "crypto-js";
 import jwt from "jsonwebtoken";
 
 import {playerStore} from "../services/playerStore.js";
@@ -10,8 +10,8 @@ function handleGetLogin(req,res){
 }
 
 function handleGetLogout(req, res) {
-    res.clearCookie('jwt_token');
-    res.clearCookie('game_id');
+    res.clearCookie("jwt_token");
+    res.clearCookie("game_id");
     res.redirect("/login");
 }
 
