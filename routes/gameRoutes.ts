@@ -6,10 +6,14 @@ import {playerStore} from "../services/playerStore.js";
 
 async function getGame(req, res){
     let gameId : string = "";
+    const openGameInDBId = await getOpenGame(req.player_id);
 
     if(req.cookies.game_id){
         gameId = req.cookies.game_id;
-    }else { //create new game
+    } else if (openGameInDBId) { //load open game
+        gameId = openGameInDBId;
+        res.cookie("game_id", gameId, {maxAge: 900000});
+    } else { //create new game
         let word = await wordService.getRandomWord();
         let inserted = await gamestateStore.add(new Gamestate(word, req.player_id));
         gameId = String(inserted.ops[0]._id);
@@ -17,6 +21,15 @@ async function getGame(req, res){
     }
     let state = await gamestateStore.getById(gameId);
     res.render("game", {title: "hangman", wordLength: state.wordToGuess.length});
+}
+
+async function getOpenGame(userId: string): Promise<string> {
+    const openGame = await gamestateStore.getOneByOwnerId(userId);
+    if (!openGame) {
+        return '';
+    } else {
+        return openGame._id.toString();
+    }
 }
 
 async function handleGetGameGameId(req, res){

@@ -52,10 +52,6 @@ async function handlePostLogin(req, res){
         if(CryptoJS.SHA512(process.env.NONCE + password).toString(CryptoJS.enc.Hex)===player.passwordHash){
             let token = jwt.sign({player_id: player._id}, process.env.SECRET, {expiresIn: 60*60*24});
             res.cookie("jwt_token", token, {httpOnly: true});
-            const openGameId = await getOpenGame(player._id);
-            if (openGameId) {
-                res.cookie("game_id", openGameId);
-            }
             res.redirect("/");
         }else{
             res.render("login", {hint: {Text: "Wrong password."}, layout: false});
@@ -65,13 +61,5 @@ async function handlePostLogin(req, res){
     }
 }
 
-async function getOpenGame(userId: string): Promise<string> {
-    const openGame = await gamestateStore.getOneByOwnerId(userId.toString());
-    if (!openGame) {
-        return '';
-    } else {
-        return openGame._id.toString();
-    }
-}
 
 export {handleGetLogin, handlePostRegister, handlePostLogin, handleGetLogout};
