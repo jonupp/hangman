@@ -45,33 +45,6 @@ async function handleGetGameGameId(req, res){
     ));
 }
 
-function getCharacterPositionsInWordToGuess(gamestate, character) {
-    let positions = new Array<number>();
-    for (let i = 0; i < gamestate.wordToGuess.length; i++) {
-        if (gamestate.wordToGuess.charAt(i) === character) {
-            positions.push(i);
-        }
-    }
-    return positions;
-}
-
-function wordIsCompletelyGuessed(gamestate) {
-    let wordToGuessArray = gamestate.wordToGuess.split("");
-
-    return wordToGuessArray.every((char) => {
-        return gamestate.correctlyGuessedCharacters.some((correctChar) => {
-            return char === correctChar.char
-        })
-    });
-}
-
-function characterWasAlreadyUsed(gamestate, character) {
-    return gamestate.correctlyGuessedCharacters.some((char) => {
-            return char.char === character
-        })
-        || gamestate.wronglyGuessedCharacters.includes(character);
-}
-
 async function handlePutGameGameIdCharacter(req, res){
     let gameId = req.params.game_id;
     let character = req.params.character;
@@ -124,6 +97,33 @@ async function handlePutGameGameIdCharacter(req, res){
             state: gamestate.state
         }
     ));
+}
+
+function getCharacterPositionsInWordToGuess(gamestate, character) {
+    let positions = new Array<number>();
+    for (let i = 0; i < gamestate.wordToGuess.length; i++) {
+        if (gamestate.wordToGuess.charAt(i) === character) {
+            positions.push(i);
+        }
+    }
+    return positions;
+}
+
+function wordIsCompletelyGuessed(gamestate) {
+    let wordToGuessArray = gamestate.wordToGuess.split("");
+
+    return wordToGuessArray.every((char) => {
+        return gamestate.correctlyGuessedCharacters.some((correctChar) => {
+            return char === correctChar.char
+        })
+    });
+}
+
+function characterWasAlreadyUsed(gamestate, character) {
+    return gamestate.correctlyGuessedCharacters.some((char) => {
+            return char.char === character
+        })
+        || gamestate.wronglyGuessedCharacters.includes(character);
 }
 
 async function handleGetEndgame(req, res){

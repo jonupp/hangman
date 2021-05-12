@@ -1,45 +1,45 @@
 <script src="/js/controllers/gameController.js" type="module"></script>
 <div class="website-content">
-<link rel='stylesheet' href='/stylesheets/play-style.css' />
-<div class="container" id="play-container">
-    <img id="state-image" src="/images/hangman_images/0F.svg">
-    <div id="guessed-characters-container">
-        {{#times wordLength}}
-            <span>_</span>
-        {{/times}}
+    <link rel="stylesheet" href='/stylesheets/play-style.css' />
+    <div class="container" id="play-container">
+        <img id="state-image" src="/images/hangman_images/0F.svg">
+        <div id="guessed-characters-container">
+            {{#times wordLength}}
+                <span>_</span>
+            {{/times}}
+        </div>
+        <div id="available-characters-container">
+            <form method="post" >
+                <button type="button">A</button>
+                <button type="button">B</button>
+                <button type="button">C</button>
+                <button type="button">D</button>
+                <button type="button">E</button>
+                <button type="button">F</button>
+                <button type="button">G</button>
+                <button type="button">H</button>
+                <button type="button">I</button>
+                <button type="button">J</button>
+                <button type="button">K</button>
+                <button type="button">L</button>
+                <button type="button">M</button>
+                <button type="button">N</button>
+                <button type="button">O</button>
+                <button type="button">P</button>
+                <button type="button">Q</button>
+                <button type="button">R</button>
+                <button type="button">S</button>
+                <button type="button">T</button>
+                <button type="button">U</button>
+                <button type="button">V</button>
+                <button type="button">W</button>
+                <button type="button">X</button>
+                <button type="button">Y</button>
+                <button type="button">Z</button>
+            </form>
+        </div>
+        <form id="endgame-redirection" action="/endgame"></form>
+        <form id="home-redirection" action="/"></form>
+        <p id="errorMessage" hidden></p>
     </div>
-    <div id="available-characters-container">
-        <form method="post" >
-            <button type="button">A</button>
-            <button type="button">B</button>
-            <button type="button">C</button>
-            <button type="button">D</button>
-            <button type="button">E</button>
-            <button type="button">F</button>
-            <button type="button">G</button>
-            <button type="button">H</button>
-            <button type="button">I</button>
-            <button type="button">J</button>
-            <button type="button">K</button>
-            <button type="button">L</button>
-            <button type="button">M</button>
-            <button type="button">N</button>
-            <button type="button">O</button>
-            <button type="button">P</button>
-            <button type="button">Q</button>
-            <button type="button">R</button>
-            <button type="button">S</button>
-            <button type="button">T</button>
-            <button type="button">U</button>
-            <button type="button">V</button>
-            <button type="button">W</button>
-            <button type="button">X</button>
-            <button type="button">Y</button>
-            <button type="button">Z</button>
-        </form>
-    </div>
-    <form id="endgame-redirection" action="/endgame"></form>
-    <form id="home-redirection" action="/"></form>
-    <p id="errorMessage" hidden></p>
-</div>
 </div>

@@ -1,14 +1,12 @@
-
 <div class="website-content">
     <h1>Home</h1>
-    <link rel='stylesheet' href='/stylesheets/home-style.css' />
-
+    <link rel="stylesheet" href="/stylesheets/home-style.css" />
     <div id="content">
-    <p>Hi {{username}}!</p>
-    <img id="image" src="/images/stickfigure.png">
+        <p>Hi {{username}}!</p>
+        <img id="image" src="/images/stickfigure.png">
         <p id="saved-text">You saved Bob {{score}} {{#ifeq score 1}} time{{else}} times{{/ifeq}}!</p>
-    <form method="get" action="/game">
-        <button id="play-button">Play</button>
-    </form>
-</div>
+        <form method="get" action="/game">
+            <button id="play-button">Play</button>
+        </form>
+    </div>
 </div>

@@ -12,10 +12,10 @@ router.get("/login", handleGetLogin);
 router.get("/logout", handleGetLogout);
 router.get("/game", authentication_middleware, getGame);
 router.get("/ranking", authentication_middleware, handleGetRanking);
-router.post("/register", handlePostRegister);
-router.post("/login", handlePostLogin);
 router.get("/game/:game_id/:character", authentication_middleware, handlePutGameGameIdCharacter);
 router.get("/game/:game_id", authentication_middleware, handleGetGameGameId);
 router.get("/endgame", authentication_middleware, handleGetEndgame);
+router.post("/register", handlePostRegister);
+router.post("/login", handlePostLogin);
 
 export default router;

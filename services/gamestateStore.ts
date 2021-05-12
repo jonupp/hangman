@@ -9,15 +9,15 @@ class GamestateStore {
     }
 
     async getById(id: string) {
-        return await databaseService.db.collection('gamestates').findOne(new mongo.ObjectID(id));
+        return await databaseService.db.collection("gamestates").findOne(new mongo.ObjectID(id));
     }
 
     async getOneByOwnerId(ownerId: string) {
-        return await databaseService.db.collection('gamestates').findOne({gameOwnerId: ownerId, state: 'ongoing'});
+        return await databaseService.db.collection("gamestates").findOne({gameOwnerId: ownerId, state: "ongoing"});
     }
 
     async update(id: string, data) {
-        return await databaseService.db.collection('gamestates').updateOne({_id:new mongo.ObjectId(id)}, {$set: data});
+        return await databaseService.db.collection("gamestates").updateOne({_id:new mongo.ObjectId(id)}, {$set: data});
     }
 }
 

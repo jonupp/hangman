@@ -1,6 +1,6 @@
 export default class CorrectCharacter {
-    private readonly char : string;
-    private readonly positions : Array<number>;
+    private readonly char: string;
+    private readonly positions: Array<number>;
 
     constructor(char: string, positions: Array<number>){
         this.char = char;

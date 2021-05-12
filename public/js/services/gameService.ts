@@ -1,4 +1,4 @@
-import {httpService} from './httpService.js'
+import {httpService} from "./httpService.js"
 
 class GameService {
     async getGame(id) {

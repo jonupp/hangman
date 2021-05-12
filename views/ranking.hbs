@@ -1,22 +1,22 @@
 <div class="website-content">
-<link rel='stylesheet' href='/stylesheets/ranking-style.css' />
-<div id="content">
-    <h1>Ranking</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>Score</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each players}}
-            <tr>
-                <td>{{username}}</td>
-                <td>{{score}}</td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
-</div>
+    <link rel="stylesheet" href="/stylesheets/ranking-style.css" />
+    <div id="content">
+        <h1>Ranking</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each players}}
+                <tr>
+                    <td>{{username}}</td>
+                    <td>{{score}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
 </div>
