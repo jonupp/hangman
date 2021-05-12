@@ -2,7 +2,7 @@ import {wordStore} from "./wordStore.js"
 
 class WordService{
 
-    async getRandomWord(){
+    async getRandomWord(): Promise<string> {
         return (await wordStore.getRandomWord()).word.toLowerCase();
     }
 }

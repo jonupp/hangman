@@ -1,7 +1,7 @@
 import {databaseService} from "./repository/database.js";
 
 class WordStore {
-    async getRandomWord(): Promise<String> {
+    async getRandomWord() {
         return (await databaseService.db.collection("words").aggregate( [ { $sample: { size: 1 } } ] ).toArray())[0];
     }
 }
