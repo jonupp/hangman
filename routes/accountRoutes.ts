@@ -50,7 +50,7 @@ async function handlePostLogin(req, res){
     if(player){
         if(CryptoJS.SHA512(process.env.NONCE + password).toString(CryptoJS.enc.Hex)===player.passwordHash){
             let token = jwt.sign({player_id: player._id}, process.env.SECRET, {expiresIn: 60*60*24});
-            res.cookie("jwt_token", token, {httpOnly: true});
+            res.cookie("jwt_token", token, {httpOnly: true, maxAge: 1000*60*60*8});
             res.redirect("/");
         }else{
             res.render("login", {hint: {Text: "Wrong password."}, layout: false});

@@ -42,12 +42,10 @@ services:
         image: "traefik:v2.4"
         container_name: "traefik"
         command:
-        - "--api.insecure=true"
         - "--providers.docker=true"
         - "--providers.docker.exposedbydefault=false"
         ports:
             - "80:80"
-            - "8080:8080"
         volumes:
             - "./traefik.yml:/etc/traefik/traefik.yml"
             - "./traefik_dynamic.production.yml:/etc/traefik/traefik_dynamic.yml"

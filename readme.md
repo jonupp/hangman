@@ -2,7 +2,9 @@
 
 ## Description
 
-This is a distributed implementation of the game Hangman. MongoDB was used as database and traefik as load balancer. All Services run in Docker. Authentication was implemented using JWT.  
+This is a distributed implementation of the game Hangman. The server runs on Express. The front-end was implemented using server-side rendering. MongoDB was used as database and Traefik as load balancer. All Services run in Docker. Authentication was implemented using JWT.  
+If a player correctly guesses a word, his score is incremented by one. The ranking displays the five highly-placed players.
+The game is lost, when seven characters were wrongly guessed.
 
 ## Start 
 
