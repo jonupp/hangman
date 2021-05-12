@@ -5,7 +5,7 @@ import CorrectCharacter from "../services/correctCharacter.js"
 import {playerStore} from "../services/playerStore.js";
 
 async function getGame(req, res){
-    let gameId : string = "";
+    let gameId : string;
     const openGameInDBId = await getOpenGame(req.player_id);
 
     if(req.cookies.game_id){
@@ -26,7 +26,7 @@ async function getGame(req, res){
 async function getOpenGame(userId: string): Promise<string> {
     const openGame = await gamestateStore.getOneByOwnerId(userId);
     if (!openGame) {
-        return '';
+        return "";
     } else {
         return openGame._id.toString();
     }
@@ -45,38 +45,53 @@ async function handleGetGameGameId(req, res){
     ));
 }
 
+function getCharacterPositionsInWordToGuess(gamestate, character) {
+    let positions = new Array<number>();
+    for (let i = 0; i < gamestate.wordToGuess.length; i++) {
+        if (gamestate.wordToGuess.charAt(i) === character) {
+            positions.push(i);
+        }
+    }
+    return positions;
+}
+
+function wordIsCompletelyGuessed(gamestate) {
+    let wordToGuessArray = gamestate.wordToGuess.split("");
+
+    return wordToGuessArray.every((char) => {
+        return gamestate.correctlyGuessedCharacters.some((correctChar) => {
+            return char === correctChar.char
+        })
+    });
+}
+
+function characterWasAlreadyUsed(gamestate, character) {
+    return gamestate.correctlyGuessedCharacters.some((char) => {
+            return char.char === character
+        })
+        || gamestate.wronglyGuessedCharacters.includes(character);
+}
+
 async function handlePutGameGameIdCharacter(req, res){
     let gameId = req.params.game_id;
     let character = req.params.character;
-
     let gamestate = await gamestateStore.getById(gameId);
 
     if(req.player_id !== gamestate.gameOwnerId){ //Only owner of game can play
         res.status(400).send({ error: "You are not the owner of this game" });
         return;
     }
-
     if(gamestate.state !== GameStateEnum.ongoing){
         res.status(400).send({ error: "Can not put to finished game" });
         return;
     }
-
-    //Check if character was not already used
-    if(gamestate.correctlyGuessedCharacters.some((char)=>{return char.char === character})
-        || gamestate.wronglyGuessedCharacters.includes(character)){
+    if(characterWasAlreadyUsed(gamestate, character)){
         res.status(400).send({ error: "Character was already used" });
         return;
     }
 
-    //Check if character is in wordToGuess
     if(gamestate.wordToGuess.includes(character)){
-        let positions = new Array<number>();
-        for(let i = 0; i < gamestate.wordToGuess.length; i++){
-            if(gamestate.wordToGuess.charAt(i) === character){
-                positions.push(i);
-            }
-        }
-        //Find Positions in word for character
+        let positions = getCharacterPositionsInWordToGuess(gamestate, character);
         let correctCharacter = new CorrectCharacter(character, positions);
 
         let newcorrectlyGuessedCharacters = gamestate.correctlyGuessedCharacters.concat([correctCharacter]);
@@ -88,10 +103,7 @@ async function handlePutGameGameIdCharacter(req, res){
 
     gamestate = await gamestateStore.getById(gameId);
 
-    let wordToGuessArray = gamestate.wordToGuess.split("");
-
-    //Word completely guessed?
-    if(wordToGuessArray.every((char)=>{  return gamestate.correctlyGuessedCharacters.some((correctChar)=>{return char===correctChar.char})})){
+    if( wordIsCompletelyGuessed(gamestate) ){
         let newScore = (await playerStore.getByPlayerId(req.player_id)).score + 1;
         await playerStore.update(req.player_id, {score:newScore});
         await gamestateStore.update(gameId, {state: GameStateEnum.won});
@@ -101,8 +113,9 @@ async function handlePutGameGameIdCharacter(req, res){
             await gamestateStore.update(gameId, {state: GameStateEnum.lost});
         }
     }
-    //Updated gamestate is needed
+
     gamestate = await gamestateStore.getById(gameId);
+
     res.setHeader("Content-Type", "application/json");
     res.end(JSON.stringify(
         {
@@ -122,7 +135,6 @@ async function handleGetEndgame(req, res){
 
     let gamestate = await gamestateStore.getById(gameId);
 
-    //Check if game is already finished
     if(gamestate.state === GameStateEnum.won){
         res.clearCookie("game_id");
         res.render("endgame", {won: true, correctWord: gamestate.wordToGuess});

@@ -2,10 +2,6 @@ entryPoints:
     web:
         address: ":80"
                 
-api:
-    dashboard: true
-    insecure: true
-    
 providers:
     file:
         filename: "/etc/traefik/traefik_dynamic.yml"
